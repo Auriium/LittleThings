@@ -1,14 +1,13 @@
 package xyz.auriium.littlethings.optionals.fragment;
 
-import xyz.auriium.littlethings.optionals.CoOptional;
-
+import java.util.Optional;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public interface BiFragment<A,B> {
 
-    <C> TriFragment<A,B,C> withPresent(CoOptional<C> optional);
-    <C> BiFragment<A,B> andPresent(CoOptional<C> optional);
+    <C> TriFragment<A,B,C> withPresent(Optional<C> optional);
+    BiFragment<A,B> andPresent(Optional<?> optional);
 
     void ifPresent(BiConsumer<A,B> consumer);
 

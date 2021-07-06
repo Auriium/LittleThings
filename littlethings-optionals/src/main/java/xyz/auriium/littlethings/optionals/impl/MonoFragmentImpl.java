@@ -1,37 +1,38 @@
 package xyz.auriium.littlethings.optionals.impl;
 
-import xyz.auriium.littlethings.optionals.CoOptional;
 import xyz.auriium.littlethings.optionals.fragment.MonoFragment;
 import xyz.auriium.littlethings.optionals.fragment.BiFragment;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public class MonoFragmentImpl<A> implements MonoFragment<A> {
 
-    private final Set<CoOptional<?>> addionalOptionals;
+    private final Set<Optional<?>> addionalOptionals;
 
-    private final CoOptional<A> optionalA;
+    private final Optional<A> optionalA;
 
-    public MonoFragmentImpl(Set<CoOptional<?>> addionalOptionals, CoOptional<A> optionalA) {
+    public MonoFragmentImpl(Set<Optional<?>> addionalOptionals, Optional<A> optionalA) {
         this.addionalOptionals = addionalOptionals;
         this.optionalA = optionalA;
     }
 
-    public MonoFragmentImpl(CoOptional<A> optionalA) {
-        this.addionalOptionals = new HashSet<>();
+    public MonoFragmentImpl(Optional<A> optionalA) {
+        this.addionalOptionals = new HashSet<Optional<?>>();
         this.optionalA = optionalA;
     }
 
 
     @Override
-    public <B> BiFragment<A, B> withPresent(CoOptional<B> optionalB) {
+    public <B> BiFragment<A, B> withPresent(Optional<B> optionalB) {
         return new BiFragmentImpl<>(addionalOptionals,optionalA,optionalB);
     }
 
     @Override
-    public <B> MonoFragment<A> andPresent(CoOptional<B> optional) {
+    public MonoFragment<A> andPresent(Optional<?> optional) {
         addionalOptionals.add(optional);
 
         return this;
@@ -39,7 +40,7 @@ public class MonoFragmentImpl<A> implements MonoFragment<A> {
 
     @Override
     public void ifPresent(Consumer<A> consumer) {
-        for (CoOptional<?> optional : addionalOptionals) {
+        for (Optional<?> optional : addionalOptionals) {
             if (optional.isEmpty()) return;
         }
 
