@@ -5,17 +5,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class DelegatingMultiMap<T,V> implements MultiMap<T,V> {
 
     protected final Map<T, Collection<V>> map;
+    private final Supplier<Collection<V>> newCol;
 
-    public DelegatingMultiMap(Map<T, Collection<V>> map) {
+    public DelegatingMultiMap(Map<T, Collection<V>> map, Supplier<Collection<V>> newCol) {
         this.map = map;
+        this.newCol = newCol;
     }
+
 
     public DelegatingMultiMap() {
         this.map = new HashMap<>();
+        this.newCol = HashSet::new;
     }
 
     @Override
@@ -61,12 +66,12 @@ public class DelegatingMultiMap<T,V> implements MultiMap<T,V> {
 
     @Override
     public void insert(T t, V v) {
-        map.computeIfAbsent(t, k -> new HashSet<>()).add(v);
+        map.computeIfAbsent(t, ignored -> newCol.get()).add(v);
     }
 
     @Override
     public void insertAll(T t, Collection<V> v) {
-        map.computeIfAbsent(t,k -> new HashSet<>()).addAll(v);
+        map.computeIfAbsent(t, ignored -> newCol.get()).addAll(v);
     }
 
 }
