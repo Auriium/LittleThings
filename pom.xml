@@ -22,6 +22,7 @@
         <module>littlethings-optionals</module>
         <module>littlethings-collections</module>
         <module>littlethings-archetypes</module>
+        <module>littlethings-conversation-simple</module>
     </modules>
 
     <properties>
