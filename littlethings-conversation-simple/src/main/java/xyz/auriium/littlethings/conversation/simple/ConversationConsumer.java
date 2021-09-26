@@ -1,7 +1,9 @@
 package xyz.auriium.littlethings.conversation.simple;
 
-public interface ConversationConsumer<D> {
+import xyz.auriium.littlethings.conversation.simple.data.ConversationData;
 
-    ConversationResult onEvent(Object event, D data);
+public interface ConversationConsumer {
+
+    ConversationResult onEvent(Object event, ConversationData data);
 
 }

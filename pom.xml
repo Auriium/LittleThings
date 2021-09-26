@@ -7,7 +7,7 @@
     <parent>
         <artifactId>insect</artifactId>
         <groupId>xyz.auriium</groupId>
-        <version>0.3.0</version>
+        <version>0.3.2</version>
     </parent>
 
     <artifactId>littlethings-parent</artifactId>
@@ -23,6 +23,7 @@
         <module>littlethings-collections</module>
         <module>littlethings-archetypes</module>
         <module>littlethings-conversation-simple</module>
+        <module>littlethings-annotations</module>
     </modules>
 
     <properties>
