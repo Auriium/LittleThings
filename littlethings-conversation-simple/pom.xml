@@ -3,17 +3,18 @@
     <parent>
         <artifactId>littlethings-parent</artifactId>
         <groupId>xyz.auriium</groupId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>littlethings-conversation-simple</artifactId>
+  <version>1.0.4</version>
 
     <dependencies>
         <dependency>
             <groupId>xyz.auriium</groupId>
             <artifactId>littlethings-archetypes</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 

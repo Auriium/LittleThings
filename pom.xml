@@ -7,15 +7,15 @@
     <parent>
         <artifactId>insect</artifactId>
         <groupId>xyz.auriium</groupId>
-        <version>0.3.2</version>
+        <version>0.3.3</version>
     </parent>
 
     <artifactId>littlethings-parent</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
 
     <scm>
         <developerConnection>scm:git:https://github.com/Auriium/LittleThings.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>1.0.3</tag>
   </scm>
 
     <modules>
@@ -27,48 +27,8 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>${compiler.version}</maven.compiler.source>
-        <maven.compiler.target>${compiler.version}</maven.compiler.target>
-
-        <!-- Test Depds !-->
         <junit.version>5.7.2</junit.version>
     </properties>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit.version}</version>
-                            <scope>runtime</scope>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <configuration>
-                    <argLine>@{jacoco.argLine}</argLine>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.junit.jupiter</groupId>
-                        <artifactId>junit-jupiter-engine</artifactId>
-                        <version>${junit.version}</version>
-                        <scope>runtime</scope>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -94,6 +54,7 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>1.7.25</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
