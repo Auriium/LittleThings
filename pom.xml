@@ -24,6 +24,7 @@
         <module>littlethings-archetypes</module>
         <module>littlethings-conversation-simple</module>
         <module>littlethings-annotations</module>
+        <module>littlethings-concurrent</module>
     </modules>
 
     <properties>
