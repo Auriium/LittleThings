@@ -9,7 +9,8 @@ import java.util.concurrent.ConcurrentMap;
 
 public class CmSingle<K> implements ConversationManager<K> {
 
-    private final ConcurrentMap<K, ConversationInstance> map = new ConcurrentHashMap<>();
+    //require computeIfPresent atomicity guarantee
+    private final ConcurrentHashMap<K, ConversationInstance> map = new ConcurrentHashMap<>();
 
 
     @Override
@@ -25,6 +26,7 @@ public class CmSingle<K> implements ConversationManager<K> {
     @Override
     public void submitEvent(K owner, Object event) {
         map.computeIfPresent(owner, (k,v) -> {
+            //apparently threadsafe?
             if (v.filter(event)) {
                 return null;
             }

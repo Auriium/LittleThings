@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentMap;
 
 public class CmMulti<K> implements ConversationManager<K> {
 
+    //require computeIfPresent atomicity guarantee
     private final ConcurrentMap<K, Collection<ConversationInstance>> map = new ConcurrentHashMap<>();
 
     @Override
