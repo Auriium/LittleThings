@@ -25,6 +25,8 @@
         <module>littlethings-conversation-simple</module>
         <module>littlethings-annotations</module>
         <module>littlethings-concurrent</module>
+        <module>littlethings-conversation-jda</module>
+        <module>littlethings-conversation-api</module>
     </modules>
 
     <properties>

@@ -8,14 +8,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>littlethings-conversation-simple</artifactId>
-  <version>1.0.6-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>xyz.auriium</groupId>
-            <artifactId>littlethings-archetypes</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+  <dependencies>
+      <dependency>
+          <groupId>xyz.auriium</groupId>
+          <artifactId>littlethings-conversation-api</artifactId>
+          <version>1.0.5-SNAPSHOT</version>
+      </dependency>
+  </dependencies>
 
 </project>

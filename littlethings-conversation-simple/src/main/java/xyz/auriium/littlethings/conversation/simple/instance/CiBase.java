@@ -1,8 +1,9 @@
 package xyz.auriium.littlethings.conversation.simple.instance;
 
-import xyz.auriium.littlethings.conversation.simple.ConversationConsumer;
-import xyz.auriium.littlethings.conversation.simple.ConversationResult;
-import xyz.auriium.littlethings.conversation.simple.data.ConversationData;
+import xyz.auriium.littlethings.conversation.ConversationConsumer;
+import xyz.auriium.littlethings.conversation.ConversationData;
+import xyz.auriium.littlethings.conversation.ConversationInstance;
+import xyz.auriium.littlethings.conversation.ConversationDirective;
 
 import java.util.Queue;
 
@@ -24,7 +25,7 @@ public class CiBase implements ConversationInstance {
 
         ConversationConsumer stage = stages.peek();
 
-        ConversationResult result = stage.onEvent(event, data);
+        ConversationDirective result = stage.onEvent(event, data);
         switch (result) {
             case CANCEL:
                 return true;

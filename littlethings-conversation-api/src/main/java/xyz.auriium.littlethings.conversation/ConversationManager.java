@@ -1,7 +1,6 @@
-package xyz.auriium.littlethings.conversation.simple.manager;
+package xyz.auriium.littlethings.conversation;
 
 import xyz.auriium.littlethings.archetypes.closeables.KeyCloseable;
-import xyz.auriium.littlethings.conversation.simple.instance.ConversationInstance;
 
 import javax.management.InstanceAlreadyExistsException;
 

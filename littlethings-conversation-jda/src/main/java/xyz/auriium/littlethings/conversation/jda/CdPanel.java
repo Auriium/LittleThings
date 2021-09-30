@@ -1,25 +1,20 @@
-package xyz.auriium.littlethings.conversation.simple.data;
+package xyz.auriium.littlethings.conversation.jda;
 
 import xyz.auriium.littlethings.conversation.ConversationData;
 
-import java.util.NoSuchElementException;
-
-public class CdNull implements ConversationData {
+public class CdPanel implements ConversationData {
 
     private final ConversationData delegate;
+    private final Panel panel;
 
-    public CdNull(ConversationData delegate) {
+    public CdPanel(ConversationData delegate, Panel panel) {
         this.delegate = delegate;
+        this.panel = panel;
     }
 
     @Override
     public <T> T getValue(String value, Class<T> type) {
-
-        try {
-            return delegate.getValue(value, type);
-        } catch (NoSuchElementException e) {
-            return null;
-        }
+        return delegate.getValue(value, type);
     }
 
     @Override
@@ -29,6 +24,11 @@ public class CdNull implements ConversationData {
 
     @Override
     public <T> T getProperty(Class<T> property) {
+
+        if (property.isInstance(panel)) {
+            return (T) panel;
+        }
+
         return delegate.getProperty(property);
     }
 }

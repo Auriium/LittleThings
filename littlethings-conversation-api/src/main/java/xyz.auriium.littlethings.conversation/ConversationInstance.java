@@ -1,4 +1,4 @@
-package xyz.auriium.littlethings.conversation.simple.instance;
+package xyz.auriium.littlethings.conversation;
 
 public interface ConversationInstance {
 

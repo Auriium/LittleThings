@@ -1,10 +1,8 @@
-package xyz.auriium.littlethings.conversation.simple;
-
-import xyz.auriium.littlethings.conversation.simple.data.ConversationData;
+package xyz.auriium.littlethings.conversation;
 
 public interface TypedConsumer<E> {
 
-    ConversationResult onTypedEvent(E event, ConversationData data);
+    ConversationDirective onTypedEvent(E event, ConversationData data);
 
     class Fake<E> implements ConversationConsumer {
 
@@ -17,8 +15,8 @@ public interface TypedConsumer<E> {
         }
 
         @Override
-        public ConversationResult onEvent(Object event, ConversationData data) {
-            if (!type.isInstance(event)) return ConversationResult.WAIT;
+        public ConversationDirective onEvent(Object event, ConversationData data) {
+            if (!type.isInstance(event)) return ConversationDirective.WAIT;
 
             return consumer.onTypedEvent((E) event, data);
         }

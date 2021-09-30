@@ -1,9 +1,10 @@
 package xyz.auriium.littlethings.conversation.simple.manager.soft;
-
-import xyz.auriium.littlethings.conversation.simple.instance.ConversationInstance;
-import xyz.auriium.littlethings.conversation.simple.manager.ConversationManager;
+import xyz.auriium.littlethings.conversation.ConversationInstance;
+import xyz.auriium.littlethings.conversation.ConversationManager;
+import xyz.auriium.littlethings.conversation.SoftManager;
 
 import javax.management.InstanceAlreadyExistsException;
+import java.util.concurrent.TimeUnit;
 
 public class SmTryCatch<K> implements SoftManager<K> {
 

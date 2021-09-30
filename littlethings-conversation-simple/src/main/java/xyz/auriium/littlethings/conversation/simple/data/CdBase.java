@@ -1,6 +1,7 @@
 package xyz.auriium.littlethings.conversation.simple.data;
 
-import javax.management.InstanceAlreadyExistsException;
+import xyz.auriium.littlethings.conversation.ConversationData;
+
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -24,5 +25,10 @@ public class CdBase implements ConversationData {
     @Override
     public void setValue(String value, Object object) {
         map.put(value, object);
+    }
+
+    @Override
+    public <T> T getProperty(Class<T> property) {
+        throw new NoSuchElementException("Default conversation data has no properties");
     }
 }
