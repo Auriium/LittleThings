@@ -15,12 +15,15 @@ public class SmTryCatch<K> implements SoftManager<K> {
     }
 
     @Override
-    public boolean submitStack(K owner, ConversationInstance instance) {
+    public boolean submitStack(K owner, ConversationInstance instance, Object object) {
         try {
             delegate.submitStack(owner, instance);
+            delegate.submitEvent(owner, object);
             return true;
         } catch (InstanceAlreadyExistsException exception) {
             return false;
         }
+
+
     }
 }

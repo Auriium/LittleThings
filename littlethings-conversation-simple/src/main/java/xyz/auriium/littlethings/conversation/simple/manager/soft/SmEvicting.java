@@ -27,10 +27,11 @@ public class SmEvicting<K> implements SoftManager<K> {
     }
 
     @Override
-    public boolean submitStack(K owner, ConversationInstance instance) {
+    public boolean submitStack(K owner, ConversationInstance instance, Object object) {
 
         try {
             manager.submitStack(owner, instance);
+            manager.submitEvent(owner, object);
         } catch (InstanceAlreadyExistsException exception) {
             return false;
         }

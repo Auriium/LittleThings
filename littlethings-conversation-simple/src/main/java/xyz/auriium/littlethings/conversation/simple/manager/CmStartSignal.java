@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * ConversationManager decorator that sends a customizable start signal once a stack is submitted
+ * For when you don't care about softmanager
  * @param <K> key
  */
 public class CmStartSignal<K> implements ConversationManager<K> {
