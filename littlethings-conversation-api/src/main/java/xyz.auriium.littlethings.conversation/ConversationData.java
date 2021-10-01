@@ -1,5 +1,8 @@
 package xyz.auriium.littlethings.conversation;
 
+import java.util.List;
+import java.util.Map;
+
 public interface ConversationData {
 
     /**
@@ -13,19 +16,16 @@ public interface ConversationData {
     <T> T getValue(String value, Class<T> type);
 
     /**
-     * Sets a value
-     * @param value the identifier of the value
-     * @param object the object to set
+     * Make an immutable copy of this and return it
+     * @return an immutable copy of this
      */
-    void setValue(String value, Object object);
+    ConversationData immutable();
 
     /**
-     * Gets a property from a data
-     * @param property the property
-     * @param <T> type of property
-     * @return the property
-     * @throws java.util.NoSuchElementException if not present
+     * Make an immutable copy of this with the given functions applied
+     * @param functions functions
+     * @return the new data object
      */
-    <T> T getProperty(Class<T> property);
+    ConversationData remapped(List<RemapFunction> functions);
 
 }
