@@ -1,7 +1,11 @@
 package xyz.auriium.littlethings.conversation;
 
-public interface RemapFunction<K, V> {
+import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
-    V remap(K key, V value);
+public interface RemapFunction extends BiFunction<String, Object, Object> {
+
+    String identifier();
 
 }

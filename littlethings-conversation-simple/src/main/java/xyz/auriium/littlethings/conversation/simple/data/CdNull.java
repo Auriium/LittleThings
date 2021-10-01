@@ -1,7 +1,9 @@
 package xyz.auriium.littlethings.conversation.simple.data;
 
 import xyz.auriium.littlethings.conversation.ConversationData;
+import xyz.auriium.littlethings.conversation.RemapFunction;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class CdNull implements ConversationData {
@@ -23,12 +25,13 @@ public class CdNull implements ConversationData {
     }
 
     @Override
-    public void setValue(String value, Object object) {
-        delegate.setValue(value, object);
+    public ConversationData immutable() {
+        return new CdNull(delegate.immutable());
     }
 
     @Override
-    public <T> T getProperty(Class<T> property) {
-        return delegate.getProperty(property);
+    public ConversationData remapped(List<RemapFunction> functions) {
+        return new CdNull(delegate.remapped(functions));
     }
+
 }

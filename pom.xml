@@ -15,8 +15,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/Auriium/LittleThings.git</developerConnection>
-      <tag>1.0.3</tag>
-  </scm>
+    </scm>
 
     <modules>
         <module>littlethings-optionals</module>
