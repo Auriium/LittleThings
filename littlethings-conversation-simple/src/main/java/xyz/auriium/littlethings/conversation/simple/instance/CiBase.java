@@ -43,4 +43,10 @@ public class CiBase implements ConversationInstance {
         }
 
     }
+
+    //Is this dangerous? It isn't leaking data, it's returning a cloned object.
+    @Override
+    public ConversationData copy() {
+        return dataRef.get().immutable(); //give us a copy!!!
+    }
 }

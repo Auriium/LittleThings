@@ -9,7 +9,6 @@ import java.util.List;
 
 public class CaEmpty implements ConversationApplicant {
 
-    private final static List<RemapFunction> empty = new ArrayList<>();
     private final ConversationDirective directive;
 
     public CaEmpty(ConversationDirective directive) {
@@ -23,6 +22,6 @@ public class CaEmpty implements ConversationApplicant {
 
     @Override
     public List<RemapFunction> remappings() {
-        return empty;
+        return new ArrayList<>();
     }
 }
