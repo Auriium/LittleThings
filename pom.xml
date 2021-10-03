@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>littlethings-parent</artifactId>
-    <version>1.3</version>
+    <version>1.4-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:https://github.com/Auriium/LittleThings.git</developerConnection>
