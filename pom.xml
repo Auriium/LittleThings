@@ -27,6 +27,7 @@
         <module>littlethings-concurrent</module>
         <module>littlethings-conversation-jda</module>
         <module>littlethings-conversation-api</module>
+        <module>littlethings-runnables</module>
     </modules>
 
     <properties>
